@@ -33,10 +33,10 @@ for dd in range(7):
 ```
 ##### 程式閱讀題:下列程式執行後會印出什麼？
 ```
-list1=range(10)
-list2=range(1,10)
-list3=range(1,10,2)
-list4=range(10,1,-2)
+list1=range(12)
+list2=range(1,12)
+list3=range(1,12,2)
+list4=range(10,1,-3)
 
 print(list(list1))
 print(list(list2))
@@ -45,7 +45,10 @@ print(list(list4))
 
 ```
 ```
-答案是:
+答案是:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11]
+       [1, 2, 3, 4, 5, 6, 7, 8, 9,10,11]
+       [1, 3, 5, 7, 9,11]
+       [10, 7, 4]
 ```
 # for 迴圈技術
 
