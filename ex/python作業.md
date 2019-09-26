@@ -61,10 +61,13 @@ numbers = [21, 4, 35, 1, 8, 7, 3, 6, 9]
 my_numbers = []
 
 for number in numbers:
-    if (number % 2 != 0): 
+    if (number % 3 != 0): 
 　　my_numbers.append(number)
 
 print(my_numbers)
+```
+```
+答案是:[4,35,1,8,7,3,6,9]
 ```
 ##### 程式設計題:完成等差數列的總和計算:1+5+9+13+ ...+81
 ```
