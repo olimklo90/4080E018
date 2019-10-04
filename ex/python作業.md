@@ -52,11 +52,19 @@ print(list(list4))
 ```
 ### 程式設計題
 ```
-1.產生1,3,6,7的list
-2.產生1,3,5,7的list
-3.產生1,11,21,31,41,51的list
+1.產生1,3,5,7的list
+2.產生1,11,21,31,41,51的list
 3.產生51,41,31,21,11,1的list
 ```
+```
+答案是:1.num=list(range(1,9,2))
+         print(num)
+        2.num=list(range(1,61,10))
+         print(num)
+        3.num=list(range(51,0,-10))
+         print(num)
+```
+### 程式設計題
 # for 迴圈技術
 
 ```
