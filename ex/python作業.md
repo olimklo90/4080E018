@@ -87,11 +87,17 @@ print(my_numbers)
 
 ##### 程式設計題:完成等差數列的總和計算:1+5+9+13+ ...+81
 ```
-
+total=0
+for i in range(1,82,4):
+  total += i
+print(total)
 ```
 ##### 程式設計題:完成等差數列的積和計算:1乘5乘9乘13乘 ...乘33
 ```
-
+total=1
+for i in range(1,34,4):
+  total *= i
+print(total)
 ```
 ##### 程式設計題:n階程的計算
 ```
