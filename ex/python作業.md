@@ -149,7 +149,14 @@ for i in range(1, n+1):
 限制條件:使用 while 設計這個程式
 ```
 ```
-
+n=int(input("請輸入一個正整數:"))
+y=1
+sum=0
+while y>0:
+  for i in range(1,n+1):
+    sum+=i
+  print(sum)
+  y=y-1
 ```
 ##### 程式設計題:n階程的計算
 
