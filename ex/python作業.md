@@ -174,7 +174,7 @@ y=1
 sum=1
 while y>0:
   for i in range(1,n+1):
-    sum *=n
+    sum *=i
   print(sum)
   y=y-1
 ```
