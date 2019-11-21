@@ -64,9 +64,11 @@ IEEE 802.1：高層區域網路協定（Bridging (networking) and Network Manage
 IEEE 802.2：邏輯鏈路控制（Logical link control）
 
 區域網路用的協定:
-***[超級重要]***IEEE 802.3：乙太網路（Ethernet）
+[超級重要]IEEE 802.3：乙太網路（Ethernet）
 IEEE 802.4：權杖匯流排（Token bus）
 IEEE 802.5：權杖環（Token-Ring）
+
+
 IEEE 802.6：城域網（MAN, Metropolitan Area Network）
 IEEE 802.7：寬頻TAG（Broadband LAN using Coaxial Cable）
 IEEE 802.8：光纖分散式資料介面（FDDI）
@@ -77,8 +79,8 @@ IEEE 802.12：需求優先級（Demand priority）
 IEEE 802.13：（未使用）
 IEEE 802.14：電纜數據機（Cable modems）
 IEEE 802.15：無線個人區域網路（Wireless PAN）
-IEEE 802.15.1：無線個人區域網路絡（WPAN, Wireless Personal Area Network）
-IEEE 802.15.4：低速無線個人區域網路絡（LR-WPAN, Low Rate Wireless Personal Area Network）
+   IEEE 802.15.1：無線個人區域網路絡（WPAN, Wireless Personal Area Network）
+   IEEE 802.15.4：低速無線個人區域網路絡（LR-WPAN, Low Rate Wireless Personal Area Network）
 IEEE 802.16：寬頻無線接入（Broadband Wireless Access）
 IEEE 802.17：彈性封包環傳輸技術（Resilient packet ring）
 IEEE 802.18：無線電管制技術（Radio Regulatory TAG）
@@ -88,12 +90,34 @@ IEEE 802.21：媒介獨立換手（Media Independent Handover）
 IEEE 802.22：無線區域網（Wireless Regional Area Network）
 IEEE 802.23：緊急服務工作群組（Emergency Services Working Group），2010年3月新發布
 ```
+# TCP/IP協定
+
+
+# 網際層（Internet Layer）[OSI 參考模式的網路層]協定:
+```
+● IP（Internet Protocol）：網際通訊協定。
+● ARP（Address Resolution Protocol）：位址解析協定。
+● RARP（Reverse Address Resolution Protocol）：反向位址解析協定。
+```
 ### ARP
 ```
 Address Resolution Protocol (ARP) - Explained with example | Computer network | TechTerms
 https://www.youtube.com/watch?v=EC1slXCT3bg
 
 MAC Address
+
+位址解析協定（Address Resolution Protocol, ARP）來查問欲傳送之目的主機的MAC位址==已知的 IP 位址查問其相對應的網路實體位
+反向位址解析協定（Reverse Address Resolution Protocol, RARP）。由已知的網路實體位址查詢其相對應的 IP 位址
+```
+```
+arp -a
+```
+```
+
+```
+### IP
+```
+
 ```
 ### ICMP
 ```
@@ -133,6 +157,23 @@ ICMP 封包格式，其各欄位功能如下：
 17 Address Mask Request（位址遮罩要求）
 18 Address Mask Reply（位址遮罩回覆）
 ```
+### Type=3[Destination Unreachable（目的地無法到達）]的 code欄位
+```
+ Code 欄位:註明無法到達目的地的原因：
+● 0: Network Unreachable（無法到達目的網路）
+● 1: Host Unreachable（無法到達目的主機）
+● 2: Protocol Unreachable（通訊協定不存在）
+● 3: Port Unreachable（無法到達連接埠）
+● 4: Fragmentation Needed and DF set（資料需分割並設定不可分割位元）
+● 5: Source Route Failed（來源路徑選擇失敗）
+● 6: Destination Network Unknown（無法識別目的地網路）
+● 7: Destination Host Unknown（無法識別目的地主機）
+● 8: Source Host Isolated（來源主機被隔離）
+● 9: Communication with Destination Network Administratively Prohibited（管理上禁止和目的地網路通訊）
+● 10: Communication with Destination Host Administratively Prohibited（管理上禁止和目的地主機通訊）
+● 11: Network Unreachable for Type of Service（無法到達此型態的網路服務）
+● 12: Host Unreachable for Type of Service（無法到達此型態的主機服務）
+```
 ### ICMP 封裝
 
 ![ICMP 封裝](icmp_encap.gif)
@@ -157,14 +198,47 @@ tracert www.pchome.com.tw
   5     *        *        *     要求等候逾時。
   6     *        *        *     要求等候逾時。
   7     *        *        *     要求等候逾時。
+  8     *        *        *     要求等候逾時。
+  9     *        *        *     要求等候逾時。
+ 10     *        *        *     要求等候逾時。
+ 11     *        *        *     要求等候逾時。
+ 12     *        *        *     要求等候逾時。
+ 13     *        *        *     要求等候逾時。
+ 14     *        *        *     要求等候逾時。
+ 15     *        *        *     要求等候逾時。
+ 16     *        *        *     要求等候逾時。
+ 17     *        *        *     要求等候逾時。
+ 18     *        *        *     要求等候逾時。
+ 19     *        *        *     要求等候逾時。
+ 20     *        *        *     要求等候逾時。
+ 21     *        *        *     要求等候逾時。
+ 22     *        *        *     要求等候逾時。
+ 23     *        *        *     要求等候逾時。
+ 24     *        *        *     要求等候逾時。
+ 25     *        *        *     要求等候逾時。
+ 26     *        *        *     要求等候逾時。
+ 27     *        *        *     要求等候逾時。
+ 28     *        *        *     要求等候逾時。
+ 29     *        *        *     要求等候逾時。
+ 30     *        *        *     要求等候逾時。
+
+追蹤完成。
 ```
-### TCP vs UDP 
+```
+作業:tracert www.ksu.edu.tw
+```
+# Transport層協定:TCP(可靠的reliable) vs UDP (不可靠的unreliable)
+```
+何謂(可靠的reliable) vs (不可靠的unreliable)?
+都(不可靠的unreliable)了,為何要用??
+如何達到(可靠的reliable)?<----封包格式的設計
+```
 ```
 TCP vs UDP Comparison
 https://www.youtube.com/watch?v=uwoD5YsGACg
 ```
 
-
+# Application 層常用協定
 ### SSL, TLS, HTTP, HTTPS 
 ```
 SSL, TLS, HTTP, HTTPS Explained
